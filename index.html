@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="js">
+<head>
+	<meta charset="shift-jis">
+	<title>プログラミングコンテスト</title>
+	<style>
+		#mycanvas{
+			border:10px solid #999;
+			cursor:crosshair;
+		}
+		.thumbnail{
+			border:2px solid #999;
+			margin-right:5px;
+		}
+	</style>
+</head>
+<body>
+	<h1>お絵かきソフト</h1>
+	<p>
+
+		 <input type="button" id="btn1" value="コンクリート" onclick="imageDraw();">
+		 <input type="button" id="erace" value="消去" />
+		 <input type="button" id="save" value="ギャラリーに追加" />
+		 <label>サイズ変更<input id="width" type="number" min="1" max="30"></label>
+		 <label>色<input id="color" type="color"></label>
+	</p>
+	<canvas id="mycanvas" width="800" height="400">not canvas</canvas>
+	<div id="gellary"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="canvas.js"></script>
+	<script>
+	function imageDraw() {
+  //オブジェクトを生成する
+            var cvs = document.getElementById('mycanvas');
+            var ctx = cvs.getContext('2d');
+            
+ 
+   //画像オブジェクトを生成
+            var img = new Image();
+            img.src = "コンクリート.png";
+ 
+  //画像をcanvasに設定
+  img.onload = function(){
+    ctx.drawImage(img, 0, 0, 800, 400);  //800x400に設定
+  }
+}
+function cls(){
+  //キャンバスの(0,0)～(800,400)の範囲をクリアする
+  ctx.clearRect(img, 0, 0, 800, 400);
+}
+</script>
+</body>
+</html>
